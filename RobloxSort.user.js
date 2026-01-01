@@ -11,6 +11,7 @@
 
 (function() {
     'use strict';
+    console.log("loading");
     var hideSponsor = false;
     var contentDiv = document.getElementById('content');
     const sortButton = document.createElement('button');
@@ -18,9 +19,9 @@
     const hideSponsorBtn = document.createElement('button');
     hideSponsorBtn.textContent = 'Show/Hide Sponsors!';
 
-    var searchPage = document.getElementById('games-search-page');
-    var gameList = searchPage.firstChild;
-    var allGamesList = gameList.children;
+    var searchPage;
+    var gameList;
+    var allGamesList;
 
     function checkForSponsor(game){
         var dataTestId = game.firstChild.lastChild.getAttribute("data-testid");
@@ -65,7 +66,8 @@
     }
 
     function main(){
-        gameList = searchPage.firstChild;
+        searchPage = document.getElementById('games-search-page');
+        gameList = searchPage.firstChild.firstChild.firstChild;
         allGamesList = gameList.children;
         for (var i = 0; i < allGamesList.length-1; i++) {
             var game = allGamesList[i];
